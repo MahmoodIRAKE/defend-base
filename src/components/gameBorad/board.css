@@ -1,0 +1,7 @@
+.ground{
+    width:100%;
+    height: 200px;
+    background-image: url('../../assets/board/tiles/Tiles/8.png');
+	border:px solid;
+    border-image: url('../../assets/board/tiles/Tiles/17.png') 30 round;
+}

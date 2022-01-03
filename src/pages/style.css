@@ -1,5 +1,32 @@
 .game{
-    background-color: aqua;
+    background-image: url('../assets/board/BG/BG.png');
     width:100vw;
-    height: 100vh;
+    height: 100vmin;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
 }
+.game-action{
+    height: 75%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    z-index: 1;
+    border: 1px solid red;
+}
+
+
+@media only screen and (orientation : landscape) {
+     /* STYLES GO HERE */
+     .game{
+        background-color: rgb(68, 88, 88);
+        width:100vmin;
+        height: 100vmin;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    }

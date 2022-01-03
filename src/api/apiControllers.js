@@ -7,7 +7,7 @@ export function deleteData(data) {
   }
 
 export function writeUserData(data) {
-    set(ref(db,'/omri/'+data.id),data);
+    set(ref(db,data.id),data);
   }
 
 export async function getData(setData){

@@ -1,0 +1,77 @@
+
+
+.move{
+    width: 10%;
+    height: 15%;
+    background-image: url('../../assets/ninja/Attack__000.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    animation: attack 0.8s infinite; 
+   
+  }
+  
+  @keyframes attack{
+    
+    10% {background-image: url("../../assets/ninja/Attack__001.png");}
+    20% {background-image: url("../../assets/ninja/Attack__002.png");}
+    30% {background-image: url("../../assets/ninja/Attack__003.png");}
+    40% {background-image: url("../../assets/ninja/Attack__004.png");}
+    50% {background-image: url("../../assets/ninja/Attack__005.png");}
+    60% {background-image: url("../../assets/ninja/Attack__006.png");}
+    70% {background-image: url("../../assets/ninja/Attack__007.png");}
+    80% {background-image: url("../../assets/ninja/Attack__008.png");}
+    90% {background-image: url("../../assets/ninja/Attack__009.png");}
+    
+ }
+ @keyframes run{
+  0%  {background-image: url("../../assets/ninja/Run__000.png");}
+  10% {background-image: url("../../assets/ninja/Run__001.png");}
+  20% {background-image: url("../../assets/ninja/Run__002.png");}
+  30% {background-image: url("../../assets/ninja/Run__003.png");}
+  40% {background-image: url("../../assets/ninja/Run__004.png");}
+  50% {background-image: url("../../assets/ninja/Run__005.png");}
+  60% {background-image: url("../../assets/ninja/Run__006.png");}
+  70% {background-image: url("../../assets/ninja/Run__007.png");}
+  80% {background-image: url("../../assets/ninja/Run__008.png");}
+  90% {background-image: url("../../assets/ninja/Run__009.png");}
+  
+}
+@keyframes die{
+    
+  10% {background-image: url("../../assets/ninja/Dead__001.png");}
+  20% {background-image: url("../../assets/ninja/Dead__002.png");}
+  30% {background-image: url("../../assets/ninja/Dead__003.png");}
+  40% {background-image: url("../../assets/ninja/Dead__004.png");}
+  50% {background-image: url("../../assets/ninja/Dead__005.png");}
+  60% {background-image: url("../../assets/ninja/Dead__006.png");}
+  70% {background-image: url("../../assets/ninja/Dead__007.png");}
+  80% {background-image: url("../../assets/ninja/Dead__008.png");}
+  90% {background-image: url("../../assets/ninja/Dead__009.png");}
+  
+}
+
+@keyframes glide{
+  10% {background-image: url("../../assets/ninja/Glide_001.png");}
+  20% {background-image: url("../../assets/ninja/Glide_002.png");}
+  30% {background-image: url("../../assets/ninja/Glide_003.png");}
+  40% {background-image: url("../../assets/ninja/Glide_004.png");}
+  50% {background-image: url("../../assets/ninja/Glide_005.png");}
+  60% {background-image: url("../../assets/ninja/Glide_006.png");}
+  70% {background-image: url("../../assets/ninja/Glide_007.png");}
+  80% {background-image: url("../../assets/ninja/Glide_008.png");}
+  90% {background-image: url("../../assets/ninja/Glide_009.png");}
+}
+@keyframes jump{
+    
+  10% {background-image: url("../../assets/ninja/Jump__001.png");}
+  20% {background-image: url("../../assets/ninja/Jump__002.png");}
+  30% {background-image: url("../../assets/ninja/Jump__003.png");}
+  40% {background-image: url("../../assets/ninja/Jump__004.png");}
+  50% {background-image: url("../../assets/ninja/Jump__005.png");}
+  60% {background-image: url("../../assets/ninja/Jump__006.png");}
+  70% {background-image: url("../../assets/ninja/Jump__007.png");}
+  80% {background-image: url("../../assets/ninja/Jump__008.png");}
+  90% {background-image: url("../../assets/ninja/Jump__009.png");}
+  
+}

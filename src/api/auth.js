@@ -11,6 +11,7 @@ signInWithPopup(auth, provider)
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+    console.log(auth)
     writeUserData({id:user.uid});
     // ...
   }).catch((error) => {
