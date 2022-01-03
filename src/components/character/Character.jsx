@@ -1,5 +1,5 @@
-import React,{useEffect, useState} from "react";
-import { useCharacterCanvas } from "../../contexts/CharacterCanvasContext";
+import React,{useEffect} from "react";
+import { useCharacterCanvas } from "../../contexts/character/CharacterCanvasContext";
 import './character.css'
 const Character=()=>{
 
@@ -13,7 +13,7 @@ const Character=()=>{
 
     return (
         
-         <div className='move'  style={{ transform: `scaleX(${direction}) translate(${posotion.x}%,${posotion.y}%)`,
+         <div className='move'  style={{ transform: `translate(${posotion.x}%,${posotion.y}%)`,
          animation: `${anime} 0.8s infinite`
          }} >
            

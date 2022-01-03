@@ -1,7 +1,6 @@
-import { CodeSharp } from "@material-ui/icons";
+
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {characterEventListners,characterMovementRules, gravityHandler,stopAnime} from "./CharacteController";
-import { translate } from "./Transform";
 const CharacterCanvasContext = React.createContext();
 export function useCharacterCanvas() {
   return useContext(CharacterCanvasContext);
@@ -22,9 +21,8 @@ export const CharacterProvider = ({ children }) => {
     down: 0,
     space: 0,
   })
-  const [posotion, setPosotion] = useState({x:0,y:577})
+  const [posotion, setPosotion] = useState({x:0,y:580})
   const [anime,setAnime]=useState('');
-  const [direction,setDirection]=useState(1);
   // const[style,setStyle] = useState(`transform: ${translate(posotion.x)}`);
   const [gravity,setGravity]=useState(false);
   // const [slide,setSlide]=useState(false);
@@ -49,9 +47,10 @@ export const CharacterProvider = ({ children }) => {
   };
 
   useEffect(()=>{
-    characterMovementRules(posotion,posotionHandler,keys,setGravity,setAnime,setDirection)
+    characterMovementRules(posotion,posotionHandler,keys,setGravity,setAnime)
     stopAnime(keys,setAnime)
   },[keys])
+
   useEffect(()=>{
     if(gravity){
     gravityHandler(posotionHandler,posotion,setGravity,setAnime)
@@ -66,7 +65,7 @@ export const CharacterProvider = ({ children }) => {
 
   return (
     <CharacterCanvasContext.Provider
-      value={{ startGame, canvasGameRef, contextRef, draw,posotion,anime,direction}}
+      value={{ startGame, canvasGameRef, contextRef, draw,posotion,anime}}
     >
       {children}
     </CharacterCanvasContext.Provider>

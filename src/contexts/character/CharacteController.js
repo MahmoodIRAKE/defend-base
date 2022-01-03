@@ -52,6 +52,9 @@ export function characterMovementRules(posotion,posotionHandler,keys,setGravity,
         setGravity(true)
         
     }
+    if(keys.space){
+        setAnime('attack')
+    }
 
 }
 
@@ -71,7 +74,7 @@ export function gravityHandler(posotionHandler,posotion,setGravity,setAnime){
     setTimeout(()=>{
         posotionHandler('y',posotion.y+10);
       
-        if(posotion.y>=550){
+        if(posotion.y>=560){
             setGravity(false);
             setAnime('')
         }

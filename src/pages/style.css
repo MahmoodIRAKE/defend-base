@@ -8,12 +8,20 @@
     
 }
 .game-action{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    z-index: 1;
+    
+}
+.game-play{
     height: 75%;
     width: 100%;
     overflow: hidden;
     display: flex;
     z-index: 1;
-    border: 1px solid red;
+    
 }
 
 
