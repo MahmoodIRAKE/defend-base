@@ -21,7 +21,8 @@
     width:80px;
     height: 100%;
     background-image: url('../../assets/board/items/Object/Crate.png');
-    background-color: brown;
+    background-color: brown
+    ;
 }
 
   

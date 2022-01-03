@@ -3,7 +3,7 @@ import { useCharacterCanvas } from "../../contexts/character/CharacterCanvasCont
 import './character.css'
 const Character=()=>{
 
-    const {startGame,posotion,anime,direction} = useCharacterCanvas();
+    const {startGame,posotion,anime} = useCharacterCanvas();
     
 
     useEffect(() => {
