@@ -1,0 +1,40 @@
+.zombie{
+    height: 10%;
+    width: 10%;
+    background-image: url('../../assets/zombie/male/Attack (1).png');
+    background-size: cover;
+    z-index: 5;
+    position: absolute;
+    top:0px;
+    right: -25px;
+    transform: scaleX(-1);
+    /* background-size: 100% 90%;   */
+    animation: move1 0.8s infinite;  
+}
+
+@keyframes attack1{
+    
+    10% {background-image: url('../../assets/zombie/male/Attack (1).png');}
+    20% {background-image: url('../../assets/zombie/male/Attack (2).png');}
+    30% {background-image: url('../../assets/zombie/male/Attack (3).png');}
+    40% {background-image: url('../../assets/zombie/male/Attack (4).png');}
+    50% {background-image: url('../../assets/zombie/male/Attack (5).png');}
+    60% {background-image: url('../../assets/zombie/male/Attack (6).png');}
+    70% {background-image: url('../../assets/zombie/male/Attack (7).png');}
+    80% {background-image: url('../../assets/zombie/male/Attack (8).png');}
+    
+ }
+
+ @keyframes move1{
+    
+    10% {background-image: url('../../assets/zombie/male/Walk (1).png');}
+    20% {background-image: url('../../assets/zombie/male/Walk (2).png');}
+    30% {background-image: url('../../assets/zombie/male/Walk (3).png');}
+    40% {background-image: url('../../assets/zombie/male/Walk (4).png');}
+    50% {background-image: url('../../assets/zombie/male/Walk (5).png');}
+    60% {background-image: url('../../assets/zombie/male/Walk (6).png');}
+    70% {background-image: url('../../assets/zombie/male/Walk (7).png');}
+    80% {background-image: url('../../assets/zombie/male/Walk (8).png');}
+    90% {background-image: url('../../assets/zombie/male/Walk (8).png');}
+    
+ }

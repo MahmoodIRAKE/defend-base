@@ -1,14 +1,17 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useRef} from "react";
 import { useCharacterCanvas } from "../../contexts/character/CharacterCanvasContext";
 import './character.css'
 const Character=()=>{
 
     const {startGame,posotion,anime} = useCharacterCanvas();
-    
+    const isStartRef = useRef(false);
 
     useEffect(() => {
+      if (!isStartRef.current) {
         startGame();
-      }, []);
+        isStartRef.current = true;
+      }
+      });
   
 
     return (

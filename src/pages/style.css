@@ -5,18 +5,29 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
     
 }
 .game-action{
+    display: flex;
     height: 100%;
     width: 100%;
     overflow: hidden;
-    display: flex;
     z-index: 1;
     
 }
+.game-action-zombie{
+    height: 30%;
+    width: 100%;
+    border: brown 2px solid;
+    position: absolute;
+    box-sizing: border-box;
+    top:43%;
+    
+    
+}
 .game-play{
-    height: 75%;
+    height: 75vmin;
     width: 100%;
     overflow: hidden;
     display: flex;

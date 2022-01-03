@@ -1,8 +1,9 @@
 
-export function characterEventListners(KeyHandler){
+export function characterEventListners(KeyHandler,keyIsOn){
     let keyEvent={ArrowRight:'right',ArrowLeft:'left',ArrowDown:'down',ArrowUp:'up',z:'space'}
     window.addEventListener('keydown', function (event) {
        KeyHandler(keyEvent[event.key],1);
+       keyIsOn.current=false;
       }, false);
       window.addEventListener('keyup', function (event) {
        KeyHandler(keyEvent[event.key],0);
@@ -59,7 +60,7 @@ export function characterMovementRules(posotion,posotionHandler,keys,setGravity,
 }
 
 /// function that checks how much keys were pressed
-function keysPressedNumber(keys){
+export function keysPressedNumber(keys){
   let sum=0;
   Object.values(keys).map(item=>{
       if(item===1){

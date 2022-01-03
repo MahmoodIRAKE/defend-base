@@ -10,6 +10,7 @@ export const CharacterProvider = ({ children }) => {
   // const [isDrawing, setIsDrawing] = useState(false)
   const canvasGameRef = useRef(null);
   const contextRef = useRef(null);
+  const keyIsOn = useRef(false);
   // ;
    
 
@@ -27,7 +28,6 @@ export const CharacterProvider = ({ children }) => {
   const [gravity,setGravity]=useState(false);
   // const [slide,setSlide]=useState(false);
   const keysHandler = (name, value) => {
-    console.log(keys)
     setKeys(prevState => ({
       ...prevState,
       [name]: value,
@@ -42,30 +42,32 @@ export const CharacterProvider = ({ children }) => {
 
 
   
-  const startGame = () => {
-    characterEventListners(keysHandler)
-  };
-
+ 
+    
+  
+  const startGame=()=>characterEventListners(keysHandler,keyIsOn);
+  
   useEffect(()=>{
+    if(!keyIsOn.current){
     characterMovementRules(posotion,posotionHandler,keys,setGravity,setAnime)
     stopAnime(keys,setAnime)
-  },[keys])
+    keyIsOn.current=true
+    }
+  },[posotion, keys])
 
-  useEffect(()=>{
+
     if(gravity){
     gravityHandler(posotionHandler,posotion,setGravity,setAnime)
     }
-  },[posotion])
-
-
-  const draw = ({ nativeEvent }) => {
  
-  };
+
+
+
 
 
   return (
     <CharacterCanvasContext.Provider
-      value={{ startGame, canvasGameRef, contextRef, draw,posotion,anime}}
+      value={{ startGame, canvasGameRef, contextRef,posotion,anime}}
     >
       {children}
     </CharacterCanvasContext.Provider>
