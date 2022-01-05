@@ -40,10 +40,11 @@ export const ZombieProvider = ({ children }) => {
      
     }
 
-    const zombieDraw=(zombieArray,gameSettings)=>{
+    const zombieDraw=(zombieArray,gameSettings,specialMove,setSpecialMove)=>{
         zombieArrMaker(zombieArray);
         return zombieArray.map(item=>{
-            return <Zombie key={item.zombieId} id={item.zombieId} posotionZ={item.posotion} gameSettings={gameSettings}/>
+            return <Zombie key={item.zombieId} id={item.zombieId} posotionZ={item.posotion} 
+            gameSettings={gameSettings} specialMove={specialMove} setSpecialMove={setSpecialMove}/>
         })
     }
     

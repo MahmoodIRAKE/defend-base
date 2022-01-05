@@ -10,6 +10,8 @@ import { CollisionProvider } from "../contexts/collision/collision";
 import { GameProvider } from "../contexts/gameBoardContext.js/gameContext";
 import CharacterHealthBar from "../components/character/CharacterHealthBar";
 import Score from "../components/gameBorad/Score";
+import { getActiveElement } from "@testing-library/user-event/dist/utils";
+import SpecialMove from "../components/specialMove/SpecialMove";
 // import Zombie from "../components/zombies/Zombie";
 const zombieArray=[];
 const gameSettings={
@@ -21,24 +23,37 @@ const gameSettings={
 const Game = () => {
     const {zombieDraw}=useZombie();
     const [sendZombies,setSender]=useState(true)
-    setTimeout(()=>{setSender(!sendZombies);gameSettings.score++},10000)
+    const [specialMove,setSpecialMove]=useState(false)
+
+    setTimeout(()=>{
+        setSender(!sendZombies);
+        gameSettings.score++;
+        if(gameSettings.towerPower>=10){
+            setSpecialMove(true);
+            gameSettings.towerPower=0;    
+        }
+        gameSettings.towerPower++;
+        gameSettings.zombieLevel++;
+    },10000)
+
     return (
         <>
       
         <div className="game">
         <CharacterHealthBar gameSettings={gameSettings}/>
         <Score gameSettings={gameSettings}/>
+        
             <CharacterProvider>
                 < CollisionProvider>
                  
                 <div className="game-play">
-                <Tower/>
+                <Tower gameSettings={gameSettings}/>
                 <div className="game-action">
                    <Character/>
-                   {zombieDraw(zombieArray,gameSettings)}
+                   {zombieDraw(zombieArray,gameSettings,specialMove,setSpecialMove)}
                 </div>
                 </div>
-                <Ground/>
+                <Ground specialMove={specialMove}/>
                
                 
                
