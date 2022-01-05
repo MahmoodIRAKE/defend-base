@@ -24,7 +24,11 @@
     background-color: brown
     ;
 }
-
+.score{
+    color:red;
+    font-size: 40px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serifzz;
+}
   
   /* .ground > div {
     background-color: rgba(255, 255, 255, 0.8);

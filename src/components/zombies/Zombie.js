@@ -11,7 +11,7 @@ const Zombie=({posotionZ,id,gameSettings})=>{
     
     const {chracterRef,groundRef}=useCollision();
     const[zombiePosotion,setPosotion]=useState(posotionZ);
-    const[zombieHealth,setHealth]=useState(5);
+    const[zombieHealth,setHealth]=useState(3);
     // const isAnimateRef=useRef(true)
     
    
@@ -50,8 +50,8 @@ const Zombie=({posotionZ,id,gameSettings})=>{
                 setHealth(zombieHealth-1);
                 }
                 if(zombieHealth===0){
-                    zombieRef.current.style.animation='dead1 1s forwards'
                     zombieRef.current.style.display='none'
+                    
                 }
             
                 console.log(zombieHealth)
@@ -63,7 +63,7 @@ const Zombie=({posotionZ,id,gameSettings})=>{
             }
             return true
         }
-   
+        console.log(gameSettings)
         zombieRef.current.style.animation='move1 0.8s infinite'
         return false
     }
