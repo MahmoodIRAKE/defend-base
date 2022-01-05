@@ -3,11 +3,12 @@ import './zombie.css'
 import { useZombie } from "../../contexts/zombies/zombeContext";
 import { useCharacterCanvas } from "../../contexts/character/CharacterCanvasContext";
 import { useCollision } from "../../contexts/collision/collision";
-
-const Zombie=({posotionZ,id})=>{
+import { useGame } from "../../contexts/gameBoardContext.js/gameContext";
+const Zombie=({posotionZ,id,gameSettings})=>{
     let tower=820;
     const zombieRef=useRef(null)
     const {anime,setAnime}=useCharacterCanvas();
+    
     const {chracterRef,groundRef}=useCollision();
     const[zombiePosotion,setPosotion]=useState(posotionZ);
     const[zombieHealth,setHealth]=useState(5);
@@ -54,6 +55,11 @@ const Zombie=({posotionZ,id})=>{
                 }
             
                 console.log(zombieHealth)
+            }
+            else{
+                if(gameSettings.characterHealth>0){
+                gameSettings.characterHealth-=0.05;
+                }
             }
             return true
         }
