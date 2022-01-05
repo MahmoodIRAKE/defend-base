@@ -27,7 +27,7 @@ export const ZombieProvider = ({ children }) => {
 
     const zombieArrMaker=(zombieArray)=>{
         
-        for(let i=0;i<zombie.zombieLevel*5;i++){
+        for(let i=0;i<zombie.zombieLevel*3;i++){
         zombieArray.push({
             health:10,
             kind:Math.floor(Math.random()*2+1),
@@ -40,11 +40,13 @@ export const ZombieProvider = ({ children }) => {
      
     }
 
-    const zombieDraw=(zombieArray,gameSettings,specialMove,setSpecialMove)=>{
+    const zombieDraw=(zombieArray,gameSettings,specialMove,setSpecialMove,setGameOver,gameOver)=>{
         zombieArrMaker(zombieArray);
         return zombieArray.map(item=>{
             return <Zombie key={item.zombieId} id={item.zombieId} posotionZ={item.posotion} 
-            gameSettings={gameSettings} specialMove={specialMove} setSpecialMove={setSpecialMove}/>
+            gameSettings={gameSettings} specialMove={specialMove} setSpecialMove={setSpecialMove}
+            setGameOver={setGameOver} gameOver={gameOver}
+            />
         })
     }
     

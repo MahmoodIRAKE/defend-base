@@ -72,48 +72,23 @@ export function keysPressedNumber(keys){
 }
 // /// this function that gives gravity to the character
 export function gravityHandler(anchor,posotionHandler,posotion,setGravity,setAnime){
-    setTimeout(()=>{
-        posotionHandler('y',posotion.y+10);
+    
+        posotionHandler('y',anchor+20);
       
         if(posotion.y>=anchor){
             setGravity(false);
             setAnime('')
         }
-    },1000/60)
+   
 }
 
 /// function to stop anime
 export function stopAnime(keys,setAnime){
     let keysNumber=keysPressedNumber(keys)
-    // slide to the right
-    if(keys.down&&keys.right&&keysNumber===2){
-      console.log(445);
-      
-    }
-    // slide to the left
-    if(keys.down&&keys.left&&keysNumber===2){
-        console.log(545);
-        
-      }
-    // go right
+
     if(!keys.right&&keysNumber===0){
         
         setAnime('')
-    }
-    //go left
-    if(keys.left&&keysNumber===1){
-        
-    }
-    // jump
-    if(keys.up&&keysNumber===1){
-     
-    }
-    if(keys.up&&keys.right&&keysNumber===2){   
- 
-    }
-    if(keys.up&&keys.left&&keysNumber===2){   
- 
-        
     }
 
 }
