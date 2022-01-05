@@ -1,8 +1,9 @@
 
 
 .move{
-    width: 10%;
-    height: 15%;
+    width: 100px;
+    height: 100px;
+    position:absolute;
     background-image: url('../../assets/ninja/Attack__000.png');
     background-size: cover;
     background-repeat: no-repeat;

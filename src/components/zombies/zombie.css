@@ -1,12 +1,10 @@
 .zombie{
-    height: 10%;
-    width: 10%;
+    height: 80px;
+    width: 80px;
     background-image: url('../../assets/zombie/male/Attack (1).png');
     background-size: cover;
     z-index: 5;
     position: absolute;
-    top:0px;
-    right: -25px;
     transform: scaleX(-1);
     /* background-size: 100% 90%;   */
     animation: move1 0.8s infinite;  
@@ -36,5 +34,23 @@
     70% {background-image: url('../../assets/zombie/male/Walk (7).png');}
     80% {background-image: url('../../assets/zombie/male/Walk (8).png');}
     90% {background-image: url('../../assets/zombie/male/Walk (8).png');}
+    
+ }
+ 
+ @keyframes dead1{
+    
+    10% {background-image: url('../../assets/zombie/male/Dead (1).png');}
+    20% {background-image: url('../../assets/zombie/male/Dead (2).png');}
+    30% {background-image: url('../../assets/zombie/male/Dead (3).png');}
+    40% {background-image: url('../../assets/zombie/male/Dead (4).png');}
+    50% {background-image: url('../../assets/zombie/male/Dead (5).png');}
+    60% {background-image: url('../../assets/zombie/male/Dead (6).png');}
+    70% {background-image: url('../../assets/zombie/male/Dead (7).png');}
+    80% {background-image: url('../../assets/zombie/male/Dead (8).png');}
+    85% {background-image: url('../../assets/zombie/male/Dead (9).png');}
+    90% {background-image: url('../../assets/zombie/male/Dead (10).png');}
+    95% {background-image: url('../../assets/zombie/male/Dead (11).png');}
+    100% {display: none;}
+  
     
  }

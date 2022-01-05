@@ -1,6 +1,7 @@
 
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {characterEventListners,characterMovementRules, gravityHandler,stopAnime} from "./CharacteController";
+
 const CharacterCanvasContext = React.createContext();
 export function useCharacterCanvas() {
   return useContext(CharacterCanvasContext);
@@ -8,8 +9,7 @@ export function useCharacterCanvas() {
 
 export const CharacterProvider = ({ children }) => {
   // const [isDrawing, setIsDrawing] = useState(false)
-  const canvasGameRef = useRef(null);
-  const contextRef = useRef(null);
+
   const keyIsOn = useRef(false);
   // ;
    
@@ -22,11 +22,12 @@ export const CharacterProvider = ({ children }) => {
     down: 0,
     space: 0,
   })
-  const [posotion, setPosotion] = useState({x:0,y:580})
+  const [anchor,setAnchor]=useState(450);
+  const [posotion, setPosotion] = useState({x:100,y:700})
   const [anime,setAnime]=useState('');
-  // const[style,setStyle] = useState(`transform: ${translate(posotion.x)}`);
   const [gravity,setGravity]=useState(false);
-  // const [slide,setSlide]=useState(false);
+ 
+
   const keysHandler = (name, value) => {
     setKeys(prevState => ({
       ...prevState,
@@ -57,7 +58,7 @@ export const CharacterProvider = ({ children }) => {
 
 
     if(gravity){
-    gravityHandler(posotionHandler,posotion,setGravity,setAnime)
+    gravityHandler(anchor,posotionHandler,posotion,setGravity,setAnime)
     }
  
 
@@ -67,7 +68,7 @@ export const CharacterProvider = ({ children }) => {
 
   return (
     <CharacterCanvasContext.Provider
-      value={{ startGame, canvasGameRef, contextRef,posotion,anime}}
+      value={{ startGame,posotion,anime,setAnchor,setAnime}}
     >
       {children}
     </CharacterCanvasContext.Provider>

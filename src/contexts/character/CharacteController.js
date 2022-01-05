@@ -71,11 +71,11 @@ export function keysPressedNumber(keys){
   return sum ;
 }
 // /// this function that gives gravity to the character
-export function gravityHandler(posotionHandler,posotion,setGravity,setAnime){
+export function gravityHandler(anchor,posotionHandler,posotion,setGravity,setAnime){
     setTimeout(()=>{
         posotionHandler('y',posotion.y+10);
       
-        if(posotion.y>=560){
+        if(posotion.y>=anchor){
             setGravity(false);
             setAnime('')
         }

@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useRef} from "react";
 import Zombie from "../../components/zombies/Zombie";
 const ZombieContext = React.createContext();
 export function useZombie() {
@@ -7,43 +7,43 @@ export function useZombie() {
 }
 
 export const ZombieProvider = ({ children }) => {
-  
+    const zombieRef = useRef(null);
     const [zombie,setZombie]=useState({
         health:10,
         kind:1,
         direction:1,
         anime:1,
-        posotion:{x:0,y:10},
+        posotion:{x:0,y:700},
         zombieLevel:1,
         zombieId:0,
     })
+    
+    const zombieHandler=(name,value)=>{
+        setZombie(prevState=>({
+            ...prevState,
+            [name]:value
+        }))
+    }
 
-    // const zombieHandler=(name,value)=>{
-    //     setZombie(prevState=>({
-    //         ...prevState,
-    //         [name]:value
-    //     }))
-    // }
-
-    const zombieArrMaker=()=>{
-        let res=[];
-        for(let i=0;i<zombie.zombieLevel*20;i++){
-        res.push({
+    const zombieArrMaker=(zombieArray)=>{
+        
+        for(let i=0;i<zombie.zombieLevel*5;i++){
+        zombieArray.push({
             health:10,
             kind:Math.floor(Math.random()*2+1),
             direction:1,
             anime:1,
-            posotion:{x:-Math.floor(Math.random()*100+1),y:63},
-            zombieId:i,
+            posotion:{x:-Math.floor(Math.random()*1000+1),y:700},
+            zombieId:i+zombieArray.length,
         })
       }
-      return res;
+     
     }
 
-    const zombieDraw=()=>{
-        let zombieArr=zombieArrMaker();
-        return zombieArr.map(item=>{
-            return <Zombie key={item.zombieId} id={item.zombieId} posotion={item.posotion}/>
+    const zombieDraw=(zombieArray)=>{
+        zombieArrMaker(zombieArray);
+        return zombieArray.map(item=>{
+            return <Zombie key={item.zombieId} id={item.zombieId} posotionZ={item.posotion}/>
         })
     }
     
@@ -59,7 +59,7 @@ export const ZombieProvider = ({ children }) => {
 
   return (
     <ZombieContext.Provider
-      value={{zombieDraw,setZombie}}
+      value={{zombieDraw,setZombie,zombieRef}}
     >
       {children}
     </ZombieContext.Provider>
