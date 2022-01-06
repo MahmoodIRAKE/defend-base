@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 .game{
     background-image: url('../assets/board/BG/BG.png');
     width:900px;
@@ -15,7 +16,7 @@
     width: 885px;
     overflow: hidden;
     z-index: 1;
-    border: 2px solid red;
+   
     
 }
 .game-action-zombie{
@@ -51,3 +52,64 @@
     }
     
     }
+
+.login{
+    height: 100vmin;
+    width: 100vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(202, 38, 38) ;
+    border-radius: 90px;
+    animation: fadeIn 6s;
+  	opacity: 1;
+}
+.login-btn{
+  height:300px;
+  width:50%;
+  cursor: pointer;
+  background-image: url('../assets/main/loginButton.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: fadeIn 12s;
+  	opacity: 1;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+       opacity: 1;
+    }
+  }
+
+  .login-btn:hover{
+      border: 100px solid blue;
+  }
+  .lobby,.score{
+      
+      height: 100vmin;
+      width: 100vmin;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color:rgb(202, 38, 38) ;
+      font-family: 'Creepster', cursive;
+      border-radius: 90px;
+      font-size: 50px;
+      color: black;
+      animation: fadeIn 4s;
+        opacity: 1;
+  }
+
+  .btn:hover{
+     color:black
+         
+  }
+  .score-card{
+      display: flex;
+      width:100%;
+      align-items: center;
+      justify-content: space-evenly;
+  }

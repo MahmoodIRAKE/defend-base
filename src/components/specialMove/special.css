@@ -6,7 +6,7 @@
     transform: translate(-500px,200px);
     position:absolute;
     z-index: 5;
-    animation: rolling 5s forwards;
+    animation: rolling 2s forwards;
 }
 .rotate{
     width:100%;

@@ -1,13 +1,13 @@
 import React,{useEffect,useRef} from "react";
 import { useCharacterCanvas } from "../../contexts/character/CharacterCanvasContext";
-import { useCollision } from "../../contexts/collision/collision";
+import { useCollision } from "../../contexts/collision/collisionGame";
 import './character.css'
-import CharacterHealthBar from "./CharacterHealthBar";
-const Character=({gameSettings})=>{
+const Character=()=>{
 
     const {startGame,posotion,anime,setAnchor} = useCharacterCanvas();
     const {chracterRef,groundRef}=useCollision();
     const isStartRef = useRef(false);
+  
 
     useEffect(() => {
       if (!isStartRef.current) {
@@ -15,7 +15,9 @@ const Character=({gameSettings})=>{
         setAnchor(groundRef.current.getBoundingClientRect().y-100)
         isStartRef.current = true;
       }
-    
+      return () => {
+        
+    }
       });
   
 

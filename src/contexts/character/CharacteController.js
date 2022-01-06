@@ -14,17 +14,7 @@ export function characterEventListners(KeyHandler,keyIsOn){
 // this function detects the move that need to be done according to keys pressed
 export function characterMovementRules(posotion,posotionHandler,keys,setGravity,setAnime,setDirection){
     let keysNumber=keysPressedNumber(keys)
-    // slide to the right
-    if(keys.down&&keys.right&&keysNumber===2){
-      console.log(445);
-      
-    }
-    // slide to the left
-    if(keys.down&&keys.left&&keysNumber===2){
-        console.log(545);
-        
-      }
-    // go right
+    // go rigt
     if(keys.right&&keysNumber===1){
         posotionHandler('x',posotion.x+10);
         setAnime('run')
@@ -86,7 +76,7 @@ export function gravityHandler(anchor,posotionHandler,posotion,setGravity,setAni
 export function stopAnime(keys,setAnime){
     let keysNumber=keysPressedNumber(keys)
 
-    if(!keys.right&&keysNumber===0){
+    if(keysNumber===0){
         
         setAnime('')
     }

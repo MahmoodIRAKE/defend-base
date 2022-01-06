@@ -8,10 +8,10 @@ export function useCharacterCanvas() {
 }
 
 export const CharacterProvider = ({ children }) => {
-  // const [isDrawing, setIsDrawing] = useState(false)
+
 
   const keyIsOn = useRef(false);
-  // ;
+ 
    
 
   /// this is to check the keys that was pressed and although to check if it still pressed to do combonations
@@ -22,8 +22,9 @@ export const CharacterProvider = ({ children }) => {
     down: 0,
     space: 0,
   })
+
   const [anchor,setAnchor]=useState(450);
-  const [posotion, setPosotion] = useState({x:100,y:700})
+  const [posotion, setPosotion] = useState({x:50,y:anchor})
   const [anime,setAnime]=useState('');
   const [gravity,setGravity]=useState(false);
  

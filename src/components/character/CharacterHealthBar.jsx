@@ -6,10 +6,11 @@ const CharacterHealthBar=({gameSettings})=>{
     const myTimeOut=useRef(null);
     useEffect(()=>{
        myTimeOut.current=setTimeout(()=>setRender(!renderBlood),1000/100)
-    },[renderBlood])
-    if(gameSettings.characterHealth<=0){
+       return () => {
         clearTimeout(myTimeOut.current);
-    }
+       }
+    },[renderBlood])
+  
     return <div className="slidecontainer">
   Your Health
   <div className='blood' style={{width:`${gameSettings.characterHealth}%`,backgroundColor:'red',height:'20px',}}>

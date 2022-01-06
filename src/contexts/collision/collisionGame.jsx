@@ -1,6 +1,6 @@
 
-import React, { useContext, useState,useRef} from "react";
-import Zombie from "../../components/zombies/Zombie";
+import React, { useContext,useRef} from "react";
+
 const CollisionContext = React.createContext();
 export function useCollision() {
   return useContext(CollisionContext);
@@ -12,10 +12,6 @@ export const CollisionProvider = ({ children }) => {
     const chracterRef=useRef(null);
     const groundRef=useRef(null);
     const towerRef=useRef(null);
-
- 
-    
-
 
 
   return (

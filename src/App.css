@@ -1,7 +1,11 @@
 .App {
   text-align: center;
   margin: 0;
-
+ 
+  background-image: url('./assets/main/main.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
   /* background-color: aqua;
   
   height: 100vw; */

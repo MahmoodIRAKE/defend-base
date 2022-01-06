@@ -5,10 +5,11 @@ const Tower=({gameSettings})=>{
     const myTimeOut=useRef(null);
     useEffect(()=>{
        myTimeOut.current=setTimeout(()=>setRender(!renderBlood),1000/100)
-    },[renderBlood])
-    if(gameSettings.characterHealth<=0){
+       return () => {
         clearTimeout(myTimeOut.current);
     }
+    },[renderBlood])
+ 
   
     return <div className="tower">
         <div className="fulltower" style={{height:`${gameSettings.towerPower*10}%`}}>

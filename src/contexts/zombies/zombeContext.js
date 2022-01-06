@@ -18,19 +18,13 @@ export const ZombieProvider = ({ children }) => {
         zombieId:0,
     })
     
-    const zombieHandler=(name,value)=>{
-        setZombie(prevState=>({
-            ...prevState,
-            [name]:value
-        }))
-    }
+ 
 
     const zombieArrMaker=(zombieArray)=>{
         
         for(let i=0;i<zombie.zombieLevel*3;i++){
         zombieArray.push({
             health:10,
-            kind:Math.floor(Math.random()*2+1),
             direction:1,
             anime:1,
             posotion:{x:-Math.floor(Math.random()*1000+1),y:700},
@@ -50,13 +44,7 @@ export const ZombieProvider = ({ children }) => {
         })
     }
     
-    // const zombieLevelUp=()=>{
-    //      setZombie('zombieLevel',zombie.zombieLevel+1);
-    // }
 
-    // setTimeout(()=>{
-    //     zombieLevelUp();
-    // },20000) 
 
 
 

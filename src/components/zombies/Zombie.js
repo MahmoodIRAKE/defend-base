@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import './zombie.css'
-import { useZombie } from "../../contexts/zombies/zombeContext";
 import { useCharacterCanvas } from "../../contexts/character/CharacterCanvasContext";
-import { useCollision } from "../../contexts/collision/collision";
-import { useGame } from "../../contexts/gameBoardContext.js/gameContext";
-import GameOverScreen from "../gameBorad/gameOver";
-const Zombie=({posotionZ,id,gameSettings,specialMove,setSpecialMove,setGameOver,gameOver})=>{
-    let tower=820;
+import { useCollision } from "../../contexts/collision/collisionGame";
+const Zombie=({posotionZ,gameSettings,specialMove,setSpecialMove,setGameOver,gameOver})=>{
+  
     const zombieRef=useRef(null)
     const zombieSpeed=useRef(10);
     const {anime}=useCharacterCanvas();
@@ -14,35 +11,48 @@ const Zombie=({posotionZ,id,gameSettings,specialMove,setSpecialMove,setGameOver,
     const[zombiePosotion,setPosotion]=useState(posotionZ);
     const[zombieHealth,setHealth]=useState(gameSettings.zombieLevel);
     const myTimeOut=useRef(null);
-    // const isAnimateRef=useRef(true)
+ 
     
    
   
     const ZombieMover=()=>{
-        
+        if(!gameOver){
         if(! isCollidedWithCharacter()){
         setPosotion({x:zombiePosotion.x+(+zombieSpeed.current),
             y:groundRef.current.getBoundingClientRect().y-80})
          }
+        }
         
        
     }
 
    
     // zombie animation
-    if(zombiePosotion.x<tower&&!gameOver){
-        myTimeOut.current=setTimeout(()=>{
-            ZombieMover();
-           
-        },1000/60) 
+    useEffect(() => {
+        
+    if(gameSettings.characterHealth<=0){
+        
+        setGameOver(true)
     }
+        if(!gameOver){
+            myTimeOut.current=setTimeout(()=>{
+                ZombieMover();
+               
+            },1000/60) 
+        }
+        return () => {
+            clearTimeout(myTimeOut.current);
+        }
+      });
+ 
 
 
 
     // collide with character
 
     const isCollidedWithCharacter=()=>{
-        if(zombieRef && chracterRef){ 
+        
+        if(!gameOver&&zombieRef && chracterRef){ 
         let zombie=zombieRef.current.getBoundingClientRect()
         let charcter=chracterRef.current.getBoundingClientRect()
         zombieDirection(charcter.x,zombie.x)
@@ -64,7 +74,7 @@ const Zombie=({posotionZ,id,gameSettings,specialMove,setSpecialMove,setGameOver,
             }
             else{
                 if(gameSettings.characterHealth>0){
-                gameSettings.characterHealth-=1;
+                gameSettings.characterHealth-=0.04;
                 }
                 
             }
@@ -96,10 +106,6 @@ const Zombie=({posotionZ,id,gameSettings,specialMove,setSpecialMove,setGameOver,
 
 
 
-    if(gameSettings.characterHealth<=0){
-        clearTimeout(myTimeOut.current);
-        setGameOver(true)
-    }
 
     if(posotionZ&&zombieHealth>0){
     return <div className="zombie" style={{right:`${zombiePosotion.x}px`, top: `${zombiePosotion.y}px` 
