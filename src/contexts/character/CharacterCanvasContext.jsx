@@ -11,7 +11,7 @@ export const CharacterProvider = ({ children }) => {
 
 
   const keyIsOn = useRef(false);
-  const helperRef = useRef(null);
+ 
  
    
 
@@ -57,7 +57,7 @@ export const CharacterProvider = ({ children }) => {
     stopAnime(keys,setAnime,anime)
     keyIsOn.current=true
     }
-  },[posotion, keys])
+  },[posotion, keys,anime])
 
 
     if(gravity){
