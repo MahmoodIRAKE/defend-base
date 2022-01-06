@@ -9,7 +9,29 @@
     background-repeat: no-repeat;
     background-size: 100% 90%;
     animation: attack 0.8s infinite; 
-   
+  }
+  .move-left{
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    background-image: url('../../assets/ninja/Attack__000.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    animation: attack 0.8s infinite; 
+    transform:scaleX(-1);
+  }
+  .glide{
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    background-image: url('../../assets/ninja/Glide_001.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    transform: scaleX(-1) translate(100px,-800px); 
+    animation: down 12s forwards;
+    
   }
   
   @keyframes attack{
@@ -53,16 +75,10 @@
   
 }
 
-@keyframes glide{
-  10% {background-image: url("../../assets/ninja/Glide_001.png");}
-  20% {background-image: url("../../assets/ninja/Glide_002.png");}
-  30% {background-image: url("../../assets/ninja/Glide_003.png");}
-  40% {background-image: url("../../assets/ninja/Glide_004.png");}
-  50% {background-image: url("../../assets/ninja/Glide_005.png");}
-  60% {background-image: url("../../assets/ninja/Glide_006.png");}
-  70% {background-image: url("../../assets/ninja/Glide_007.png");}
-  80% {background-image: url("../../assets/ninja/Glide_008.png");}
-  90% {background-image: url("../../assets/ninja/Glide_009.png");}
+@keyframes down{
+0%{transform:scaleX(-1) translate(100px,-800px);}
+100%{transform: scaleX(-1) translate(70vmin,75vmin);}
+
 }
 @keyframes jump{
     

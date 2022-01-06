@@ -11,6 +11,7 @@ export const CharacterProvider = ({ children }) => {
 
 
   const keyIsOn = useRef(false);
+  const helperRef = useRef(null);
  
    
 
@@ -24,8 +25,9 @@ export const CharacterProvider = ({ children }) => {
   })
 
   const [anchor,setAnchor]=useState(450);
-  const [posotion, setPosotion] = useState({x:50,y:anchor})
-  const [anime,setAnime]=useState('');
+  const [posotion, setPosotion] = useState({x:800,y:0})
+  const [anime,setAnime]=useState('down');
+  const [classAnime,setClass]=useState('glide');
   const [gravity,setGravity]=useState(false);
  
 
@@ -51,8 +53,8 @@ export const CharacterProvider = ({ children }) => {
   
   useEffect(()=>{
     if(!keyIsOn.current){
-    characterMovementRules(posotion,posotionHandler,keys,setGravity,setAnime)
-    stopAnime(keys,setAnime)
+    characterMovementRules(posotion,posotionHandler,keys,setGravity,setAnime,setClass)
+    stopAnime(keys,setAnime,anime)
     keyIsOn.current=true
     }
   },[posotion, keys])
@@ -69,7 +71,7 @@ export const CharacterProvider = ({ children }) => {
 
   return (
     <CharacterCanvasContext.Provider
-      value={{ startGame,posotion,anime,setAnchor,setAnime}}
+      value={{ startGame,posotion,anime,setAnchor,setAnime,classAnime,setPosotion,setClass}}
     >
       {children}
     </CharacterCanvasContext.Provider>
